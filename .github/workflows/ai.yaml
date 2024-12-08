@@ -19,7 +19,7 @@ jobs:
       - name: Build
         run: npx tsc
       - name: Test ai with title
-        run: npx github-actions-ctrf@0.0.50-rc.2 ctrf-reports/ctrf-report.json --title "AI Summary With Title"
+        run: npx github-actions-ctrf@0.0.50-rc.3 ctrf-reports/ctrf-report.json --title "AI Summary With Title"
       - name: Test ai without title
         run: node dist/index.js ai ctrf-reports/ctrf-report.json
       - name: Test ai with suite name
