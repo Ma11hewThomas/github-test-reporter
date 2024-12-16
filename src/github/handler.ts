@@ -87,7 +87,10 @@ export function handleAnnotations(inputs: Inputs, report: CtrfReport): void {
  * @param inputs - The user-provided inputs for configuring the comment behavior.
  * @param marker - The unique marker used to find and identify the existing comment.
  */
-async function postOrUpdatePRComment(inputs: Inputs, marker: string): Promise<void> {
+async function postOrUpdatePRComment(
+  inputs: Inputs,
+  marker: string
+): Promise<void> {
   let newSummary = core.summary.stringify()
 
   if (!newSummary.includes(marker)) {
@@ -99,7 +102,12 @@ async function postOrUpdatePRComment(inputs: Inputs, marker: string): Promise<vo
   const repo = context.repo.repo
   const issue_number = context.issue.number
 
-  const existingComment = await findExistingMarkedComment(owner, repo, issue_number, marker)
+  const existingComment = await findExistingMarkedComment(
+    owner,
+    repo,
+    issue_number,
+    marker
+  )
 
   let finalBody = newSummary
 
@@ -112,7 +120,13 @@ async function postOrUpdatePRComment(inputs: Inputs, marker: string): Promise<vo
   }
 
   if (existingComment && (inputs.updateComment || inputs.overwriteComment)) {
-    await updateComment(existingComment.id, owner, repo, issue_number, finalBody)
+    await updateComment(
+      existingComment.id,
+      owner,
+      repo,
+      issue_number,
+      finalBody
+    )
   } else {
     await addCommentToPullRequest(owner, repo, issue_number, finalBody)
   }
