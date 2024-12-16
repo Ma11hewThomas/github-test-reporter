@@ -27,7 +27,8 @@ export async function handleViewsAndComments(
   report: CtrfReport
 ): Promise<void> {
   const INVISIBLE_MARKER =
-    `<!-- CTRF PR COMMENT TAG: ${inputs.commentTag} -->` || `<!-- CTRF PR COMMENT TAG: ${context.workflow} -->`
+    `<!-- CTRF PR COMMENT TAG: ${inputs.commentTag} -->` ||
+    `<!-- CTRF PR COMMENT TAG: DEFAULT -->`
   generateViews(inputs, report)
 
   if (shouldAddCommentToPullRequest(inputs, report)) {
