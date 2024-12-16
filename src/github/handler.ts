@@ -32,8 +32,18 @@ export async function handleViewsAndComments(
 
   // Determine if we should comment on the PR
   if (shouldAddCommentToPullRequest(inputs, report)) {
-    // Add our invisible marker to the summary so we can find this comment later
-    core.summary.addRaw(INVISIBLE_MARKER)
+    // Always include the invisible marker in new summaries so we can find them later
+    // If we are updating an existing comment, it likely already has the marker, so we can re-use it.
+    let newSummary = core.summary.stringify()
+
+    // Add our invisible marker to the summary only if it's a brand new comment or an overwrite
+    // If we are appending to an existing comment, it should already contain the marker.
+    // For simplicity, we just always include it at the top. It's harmless if duplicated.
+    // If you prefer not to duplicate it, you can conditionally add it only when no existing comment is found.
+    if (!newSummary.includes(INVISIBLE_MARKER)) {
+      core.summary.addRaw(INVISIBLE_MARKER)
+      newSummary = core.summary.stringify()
+    }
 
     const owner = context.repo.owner
     const repo = context.repo.repo
@@ -47,26 +57,31 @@ export async function handleViewsAndComments(
       INVISIBLE_MARKER
     )
 
-    const body = core.summary.stringify()
+    let finalBody = newSummary
+
+    if (existingComment) {
+      if (inputs.updateComment && !inputs.overwriteComment) {
+        // Append new report to existing comment.
+        // Since existing comment already has the marker, we just add the new content at the bottom.
+        // We can separate with a header or line break.
+        finalBody = `${existingComment.body}\n\n---\n\n${newSummary}`
+      } else if (inputs.overwriteComment) {
+        // Overwrite the existing comment entirely
+        finalBody = newSummary
+      }
+    }
 
     if (existingComment && (inputs.updateComment || inputs.overwriteComment)) {
-      // Update/overwrite the existing comment
-      // Overwrite vs update logic can differ; for simplicity, we just replace the entire body.
-      await updateComment(existingComment.id, owner, repo, issue_number, body)
+      await updateComment(existingComment.id, owner, repo, issue_number, finalBody)
     } else {
-      // If no existing comment or no update requested, just add a new comment
-      await addCommentToPullRequest(owner, repo, issue_number, body)
+      // If no existing comment or no update/overwrite requested, just add a new comment
+      await addCommentToPullRequest(owner, repo, issue_number, finalBody)
     }
   }
 
   if (inputs.summary && !inputs.pullRequestReport) {
     await core.summary.write()
   }
-}
-
-export function updateCommentInPr(): void {
-  // This function could hold additional logic if needed,
-  // but for now we've included everything in handleViewsAndComments.
 }
 
 /**
