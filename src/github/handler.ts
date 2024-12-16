@@ -72,7 +72,13 @@ export async function handleViewsAndComments(
     }
 
     if (existingComment && (inputs.updateComment || inputs.overwriteComment)) {
-      await updateComment(existingComment.id, owner, repo, issue_number, finalBody)
+      await updateComment(
+        existingComment.id,
+        owner,
+        repo,
+        issue_number,
+        finalBody
+      )
     } else {
       // If no existing comment or no update/overwrite requested, just add a new comment
       await addCommentToPullRequest(owner, repo, issue_number, finalBody)
