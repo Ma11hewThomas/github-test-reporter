@@ -19,7 +19,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Lint
-        run: npm run lint
+        run: npm run lintr
       - name: Format
         run: npm run format:check
       - name: Testf
