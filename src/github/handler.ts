@@ -85,7 +85,7 @@ export function shouldAddCommentToPullRequest(
     !inputs.onFailOnly
 
   return (
-    inputs.pullRequestReport &&
+    (inputs.pullRequestReport || inputs.pullRequest) &&
     context.eventName === 'pull_request' &&
     shouldAddComment
   )
