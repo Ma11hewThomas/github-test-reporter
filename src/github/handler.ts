@@ -10,7 +10,7 @@ import { generateViews, annotateFailed } from './core'
 import { components } from '@octokit/openapi-types'
 
 type IssueComment = components['schemas']['issue-comment']
-const INVISIBLE_MARKER = `<!-- CTRF PR COMMENT TAG: ${context.job} -->`
+const INVISIBLE_MARKER = `<!-- CTRF PR COMMENT TAG: ${context.workflow} -->`
 
 /**
  * Handles the generation of views and comments for a CTRF report.
