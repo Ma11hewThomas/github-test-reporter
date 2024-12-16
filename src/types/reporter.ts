@@ -29,6 +29,7 @@ export interface Inputs {
   fetchPreviousResults: boolean
   updateComment: boolean
   overwriteComment: boolean
+  commentTag: string
   groupBy: 'suite' | 'filePath'
   alwaysGroupBy: boolean
   debug: boolean

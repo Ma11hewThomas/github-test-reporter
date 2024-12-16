@@ -10,7 +10,6 @@ import { generateViews, annotateFailed } from './core'
 import { components } from '@octokit/openapi-types'
 
 type IssueComment = components['schemas']['issue-comment']
-const INVISIBLE_MARKER = `<!-- CTRF PR COMMENT TAG: ${context.workflow} -->`
 
 /**
  * Handles the generation of views and comments for a CTRF report.
@@ -27,19 +26,13 @@ export async function handleViewsAndComments(
   inputs: Inputs,
   report: CtrfReport
 ): Promise<void> {
-  // Generate the report views for summary
+  const INVISIBLE_MARKER =
+    inputs.commentTag || `<!-- CTRF PR COMMENT TAG: ${context.workflow} -->`
   generateViews(inputs, report)
 
-  // Determine if we should comment on the PR
   if (shouldAddCommentToPullRequest(inputs, report)) {
-    // Always include the invisible marker in new summaries so we can find them later
-    // If we are updating an existing comment, it likely already has the marker, so we can re-use it.
     let newSummary = core.summary.stringify()
 
-    // Add our invisible marker to the summary only if it's a brand new comment or an overwrite
-    // If we are appending to an existing comment, it should already contain the marker.
-    // For simplicity, we just always include it at the top. It's harmless if duplicated.
-    // If you prefer not to duplicate it, you can conditionally add it only when no existing comment is found.
     if (!newSummary.includes(INVISIBLE_MARKER)) {
       core.summary.addRaw(INVISIBLE_MARKER)
       newSummary = core.summary.stringify()
@@ -49,7 +42,6 @@ export async function handleViewsAndComments(
     const repo = context.repo.repo
     const issue_number = context.issue.number
 
-    // Fetch existing PR comments to see if we already posted one with our marker
     const existingComment = await findExistingMarkedComment(
       owner,
       repo,
@@ -61,12 +53,8 @@ export async function handleViewsAndComments(
 
     if (existingComment) {
       if (inputs.updateComment && !inputs.overwriteComment) {
-        // Append new report to existing comment.
-        // Since existing comment already has the marker, we just add the new content at the bottom.
-        // We can separate with a header or line break.
         finalBody = `${existingComment.body}\n\n---\n\n${newSummary}`
       } else if (inputs.overwriteComment) {
-        // Overwrite the existing comment entirely
         finalBody = newSummary
       }
     }
@@ -80,7 +68,6 @@ export async function handleViewsAndComments(
         finalBody
       )
     } else {
-      // If no existing comment or no update/overwrite requested, just add a new comment
       await addCommentToPullRequest(owner, repo, issue_number, finalBody)
     }
   }

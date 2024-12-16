@@ -30,6 +30,7 @@ export interface Arguments {
   useSuiteName?: boolean
   updateComment?: boolean
   overwriteComment?: boolean
+  commentTag?: string
   results?: number
   exitOnFail?: boolean
 }
@@ -293,6 +294,10 @@ async function main(): Promise<void> {
       type: 'boolean',
       description: 'Overwrites existing Pull Request comment',
       default: false
+    })
+    .options('comment-tag', {
+      type: 'string',
+      description: 'Tag to use to match Pull Request comments with'
     })
     .help()
     .alias('help', 'h')
