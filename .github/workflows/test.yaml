@@ -23,7 +23,7 @@ jobs:
       - name: Format
         run: npm run format:check
       - name: Test
-        run: npm run test
+        run: npm run testk
       - name: Summary
         run: node dist/core/cli.js ctrf/ctrf-report.json
       - name: Pull Request
