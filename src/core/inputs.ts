@@ -35,6 +35,8 @@ export function getCliInputs(args: Arguments): Inputs {
     previousResultsMax: args.rows || 10,
     metricsReportsMax: args.results || 100,
     fetchPreviousResults: args._.includes('fetch-previous-results'),
+    updateComment: args.updateComment || false,
+    overwriteComment: args.overwriteComment || false,
     groupBy: groupBy,
     alwaysGroupBy: false,
     debug: args._.includes('debug')
@@ -88,6 +90,8 @@ export function getInputs(): Inputs {
     ),
     fetchPreviousResults:
       core.getInput('fetch-previous-results').toLowerCase() === 'true',
+    updateComment: true,
+    overwriteComment: true,
     groupBy: groupBy,
     alwaysGroupBy: core.getInput('always-group-by').toLowerCase() === 'true',
     debug: core.getInput('debug').toLowerCase() === 'true'

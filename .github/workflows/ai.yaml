@@ -19,7 +19,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Test ai report
-        run: node dist/core/cli.js ai ctrf-reports/ctrf-report.json --title "AI Summary"
+        run: node dist/core/cli.js ai ctrf-reports/ctrf-report.json --title "AI Summary" --pull-request --overwrite-comment
       - name: Upload test results
         uses: actions/upload-artifact@v4
         with:

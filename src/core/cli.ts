@@ -28,6 +28,8 @@ export interface Arguments {
   domain?: string
   useSuite?: boolean
   useSuiteName?: boolean
+  updateComment?: boolean
+  overwriteComment?: boolean
   results?: number
   exitOnFail?: boolean
 }
@@ -280,6 +282,16 @@ async function main(): Promise<void> {
     .options('exit-on-fail', {
       type: 'boolean',
       description: 'Fail action when if tests fail',
+      default: false
+    })
+    .options('update-comment', {
+      type: 'boolean',
+      description: 'Updates existing Pull Request comment',
+      default: false
+    })
+    .options('overwrite-comment', {
+      type: 'boolean',
+      description: 'Overwrites existing Pull Request comment',
       default: false
     })
     .help()
