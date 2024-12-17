@@ -235,7 +235,11 @@ export async function processPreviousResultsAndMetrics(
     githubContext.run_id
   )
 
-  const filteredRuns = filterWorkflowRuns(workflowRuns, githubContext, currentWorkflowRun)
+  const filteredRuns = filterWorkflowRuns(
+    workflowRuns,
+    githubContext,
+    currentWorkflowRun
+  )
 
   const reports = await processArtifactsFromRuns(
     filteredRuns,
