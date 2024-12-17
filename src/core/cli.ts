@@ -307,6 +307,8 @@ async function main(): Promise<void> {
     const inputs = getCliInputs(argv)
     const githubContext = getAllGitHubContext()
 
+    console.log(githubContext.workflowName)
+
     const report = await prepareReport(inputs, githubContext)
 
     await handleViewsAndComments(inputs, report)
