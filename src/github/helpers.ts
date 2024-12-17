@@ -53,9 +53,9 @@ export function filterWorkflowRuns(
       )
 
       // run name is the run-name or name
-      console.log(`run name: ${run.name}`)
+      console.log(`run name: ${run.id}`)
       // workflow name is the name
-      console.log(`workflow: ${githubProperties.workflowName}`)
+      console.log(`workflow: ${githubProperties.workflowId}`)
 
       // console.log(JSON.stringify(run))
 
