@@ -52,6 +52,9 @@ export function filterWorkflowRuns(
         pr => pr.number === githubProperties.pullRequest.number
       )
 
+      console.log(`run name: ${run.name}`)
+      console.log(`workflow: ${githubProperties.workflow}`)
+
     const isWorkflowNameMatch = run.name === githubProperties.workflow
 
     if ((isBranchMatch || isPRMatch) && isWorkflowNameMatch) {
