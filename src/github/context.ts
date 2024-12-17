@@ -21,6 +21,8 @@ export function getAllGitHubContext(): GitHubContext {
   const pullRequest = getPullRequestContext()
   const sender = getSenderContext()
 
+  console.log(JSON.stringify(context))
+
   return {
     ...root,
     ...additional,

@@ -57,7 +57,7 @@ export function filterWorkflowRuns(
       // workflow name is the name
       console.log(`workflow: ${githubProperties.workflowName}`)
 
-      console.log(JSON.stringify(run))
+      // console.log(JSON.stringify(run))
 
     const isWorkflowNameMatch = run.name === githubProperties.workflowName
 
