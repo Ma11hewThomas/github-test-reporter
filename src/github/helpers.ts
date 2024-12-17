@@ -44,6 +44,7 @@ export function filterWorkflowRuns(
   console.log(`runs workflowid: ${runs[0].workflow_id}`)
   // console.log(JSON.stringify(runs[0]))
   const workflowId = runs[0].workflow_id
+  console.log('workflow id:' + workflowId)
   return runs.filter(run => {
     const isBranchMatch =
       run.head_branch === githubProperties.branchName &&
@@ -58,7 +59,7 @@ export function filterWorkflowRuns(
       // run name is the run-name or name
       console.log(`run name: ${run.workflow_id}`)
       // workflow name is the name
-      console.log(`workflow: ${githubProperties.workflowId}`)
+      console.log(`workflow: ${workflowId}`)
 
       // console.log(JSON.stringify(run))
 
