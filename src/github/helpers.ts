@@ -41,6 +41,7 @@ export function filterWorkflowRuns(
   // TODO: use GitHub properties
   githubProperties: GitHubContext
 ): WorkflowRun[] {
+  console.log(`runs workflowid: ${runs[0].workflow_id}`)
   return runs.filter(run => {
     const isBranchMatch =
       run.head_branch === githubProperties.branchName &&
