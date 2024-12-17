@@ -1,4 +1,4 @@
-name: ai-example
+run-name: ai-example
 
 on:
   push:
