@@ -3,6 +3,22 @@ import { components } from '@octokit/openapi-types'
 
 type WorkflowRun = components['schemas']['workflow-run']
 
+
+export async function fetchWorkflowRun(
+  owner: string,
+  repo: string,
+  run_id: number
+): Promise<WorkflowRun> {
+  const octokit = await createGitHubClient()
+  const response = await octokit.actions.getWorkflowRun({
+  owner,
+  repo,
+  run_id
+  })
+
+  return response.data
+}
+
 /**
  * Fetches workflow runs for a specific repo.
  * @param owner - The owner of the repository.
