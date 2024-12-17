@@ -19,7 +19,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Test ai reportv
-        run: node dist/core/cli.js ai ctrf-reports/ctrf-report.json --title "AI Summaryg" --pull-request --overwrite-comment --comment-tag 01010101
+        run: node dist/core/cli.js ai ctrf-reports/ctrf-report.json --title "AI Summary" --pull-request --overwrite-comment --comment-tag "${{ github.workflow }}-${{ github.job }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload test results
