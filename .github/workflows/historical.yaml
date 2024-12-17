@@ -19,7 +19,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Previous results table
-        run: node dist/core/cli.js historical ctrf-reports/ctrf-report.json --annotate false --title "Previous results table"
+        run: node dist/core/cli.js historical ctrf-reports/ctrf-report.json --annotate false --title "Previous results tablef"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload test results
