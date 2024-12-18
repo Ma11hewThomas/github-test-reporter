@@ -38,9 +38,11 @@ export function validateCtrfFile(filePath: string): CtrfReport | null {
  */
 export function filterWorkflowRuns(
   runs: WorkflowRun[],
-  // TODO: use GitHub properties
-  githubProperties: GitHubContext
+  githubProperties: GitHubContext,
+  currentRun: WorkflowRun
 ): WorkflowRun[] {
+  console.log(`runs workflowid: ${runs[0].workflow_id}`)
+  githubProperties.jobName
   return runs.filter(run => {
     const isBranchMatch =
       run.head_branch === githubProperties.branchName &&
@@ -52,7 +54,7 @@ export function filterWorkflowRuns(
         pr => pr.number === githubProperties.pullRequest.number
       )
 
-    const isWorkflowNameMatch = run.name === githubProperties.workflow
+    const isWorkflowNameMatch = run.workflow_id === currentRun.workflow_id
 
     if ((isBranchMatch || isPRMatch) && isWorkflowNameMatch) {
       console.debug(
