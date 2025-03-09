@@ -26,8 +26,8 @@ export async function prepareReport(
 ): Promise<CtrfReport> {
   let report: CtrfReport
   core.startGroup(`📜 Preparing CTRF report`)
-  if (inputs.ctrfPath.includes('.xml')) {
-    core.info('JUnit report detected, converting to CTRF')
+  if (hasJunitIntegration(inputs)) {
+    core.info('JUnit integration detected')
     report = await convertJUnitToCTRFReport(inputs.ctrfPath)
   } else {
     report = readCtrfReports(inputs.ctrfPath)
@@ -100,4 +100,15 @@ function shouldProcessPreviousResults(inputs: Inputs): boolean {
     inputs.slowestReport ||
     inputs.fetchPreviousResults
   )
+}
+
+/**
+ * Determines if junit-to-ctrf integration is enabled and configured in the inputs.
+ * This checks if there is a valid junit configuration in the integrationsConfig.
+ *
+ * @param inputs - The user-provided inputs.
+ * @returns `true` if junit integration is configured, otherwise `false`.
+ */
+function hasJunitIntegration(inputs: Inputs): boolean {
+  return Boolean(inputs.integrationsConfig?.junit)
 }
