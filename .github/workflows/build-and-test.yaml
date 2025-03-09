@@ -35,17 +35,17 @@ jobs:
           # failed-report: true
           # pull-request: true
           # upload-artifact: true
-          summary-report: true
-          github-report: true
-          failed-report: true
-          flaky-report: true
+          # summary-report: true
+          # github-report: true
+          # failed-report: true
+          # flaky-report: true
           insights-report: true
           # fail-rate-report: true
           # flaky-rate-report: true
           slowest-report: true
-          previous-results-report: true
-          use-suite-name: true
-          upload-artifact: true
+          # previous-results-report: true
+          # use-suite-name: true
+          # upload-artifact: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: always()
