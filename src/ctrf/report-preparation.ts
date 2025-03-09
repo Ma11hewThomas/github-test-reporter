@@ -89,8 +89,8 @@ function shouldProcessPreviousResults(inputs: Inputs): boolean {
     inputs.previousResultsReport ||
     inputs.flakyRateReport ||
     inputs.failRateReport ||
-    // inputs.slowestReport ||
-    // inputs.insightsReport ||
+    inputs.slowestReport ||
+    inputs.insightsReport ||
     inputs.fetchPreviousResults
   )
 }
