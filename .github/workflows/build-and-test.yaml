@@ -23,7 +23,7 @@ jobs:
       - name: Publish Test Report
         uses: ./
         with:
-          report-path: './ctrf-reports/*.json'
+          report-path: './ctrf-reports/*.xml'
           summary-report: true
           github-report: true
           failed-report: true
@@ -35,7 +35,7 @@ jobs:
           previous-results-report: true
           use-suite-name: true
           upload-artifact: true
-          integrations-config: '{"junit": {"action": "convert"}}'
+          integrations-config: '{"junit-to-ctrf": {"action": "convert"}}'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: always()

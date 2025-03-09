@@ -110,5 +110,5 @@ function shouldProcessPreviousResults(inputs: Inputs): boolean {
  * @returns `true` if junit integration is configured, otherwise `false`.
  */
 function hasJunitIntegration(inputs: Inputs): boolean {
-  return Boolean(inputs.integrationsConfig?.junit)
+  return Boolean(inputs.integrationsConfig?.['junit-to-ctrf'])
 }
