@@ -24,17 +24,17 @@ jobs:
         uses: ./
         with:
           report-path: './ctrf/*.json'
-          write-ctrf-to-file: './reports/ctrf-report.json'
-          annotate: false
+          # write-ctrf-to-file: './reports/ctrf-report.json'
+          # annotate: false
           previous-results-report: true
           flaky-report: true
           insights-report: true
           slowest-report: true
-          exit-on-fail: true
-          summary-report: true
-          failed-report: true
-          pull-request: true
-          upload-artifact: true
+          # exit-on-fail: true
+          # summary-report: true
+          # failed-report: true
+          # pull-request: true
+          # upload-artifact: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: always()
