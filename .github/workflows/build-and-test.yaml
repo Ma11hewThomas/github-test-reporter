@@ -32,7 +32,6 @@ jobs:
           slowest-report: true
           exit-on-fail: true
           summary-report: true
-          group-by: 'suite'
           use-suite-name: true
           failed-report: true
           pull-request: true
