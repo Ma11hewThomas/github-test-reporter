@@ -127,6 +127,10 @@ export function formatDurationStartStopToHumanHelper(): void {
       return 'not captured'
     }
 
+    if (isNaN(start) || isNaN(stop)) {
+      return 'not captured'
+    }
+
     const durationMs = stop - start
     if (durationMs < 1) {
       return `1ms`
