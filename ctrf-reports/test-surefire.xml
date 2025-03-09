@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.MyTest" tests="10" failures="2" errors="1" skipped="1" time="0.058">
+  <properties>
+    <property name="java.version" value="1.8.0_292"/>
+    <property name="os.name" value="Linux"/>
+  </properties>
+    <testcase name="testPass1" classname="com.example.MyTest" time="0.002"/>
+  <testcase name="testPass2" classname="com.example.MyTest" time="0.003"/>
+    <testcase name="testFail1" classname="com.example.MyTest" time="0.005">
+    <failure message="Test failed due to assertion" type="AssertionError">
+      Stack trace details here
+    </failure>
+  </testcase>
+    <testcase name="testPass3" classname="com.example.MyTest" time="0.002"/>
+    <testcase name="testError1" classname="com.example.MyTest" time="0.001">
+    <error message="Unexpected exception" type="java.lang.NullPointerException">
+      NullPointerException stack trace details
+    </error>
+  </testcase>
+    <testcase name="testPass4" classname="com.example.MyTest" time="0.010"/>
+  <testcase name="testPass5" classname="com.example.MyTest" time="0.020"/>
+    <testcase name="testFail2" classname="com.example.MyTest" time="0.005">
+    <failure message="Assertion failed on condition" type="AssertionError">
+      Another stack trace
+    </failure>
+  </testcase>
+    <testcase name="testSkipped1" classname="com.example.MyTest" time="0.000">
+    <skipped/>
+  </testcase>
+    <testcase name="testPass6" classname="com.example.MyTest" time="0.010"/>
+  <system-out><![CDATA[Standard output logs here]]></system-out>
+  <system-err><![CDATA[Standard error logs here]]></system-err>
+</testsuite>

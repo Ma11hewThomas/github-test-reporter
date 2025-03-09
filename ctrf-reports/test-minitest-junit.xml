@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="MinitestExample::ExampleOne" filepath="test/example_one_test.rb" skipped="0" failures="0" errors="0" tests="19" assertions="138" time="142.68252823400005">
+    <testcase name="test_should_1" lineno="30" classname="MinitestExample::ExampleOne" assertions="9" time="18.851395190999995" file="test/example_one_test.rb"></testcase>
+    <testcase name="test_should_2" lineno="163" classname="MinitestExample::ExampleOne" assertions="8" time="11.454658561999992" file="test/example_one_test.rb"></testcase>
+    <testcase name="test_should_3" lineno="474" classname="MinitestExample::ExampleOne" assertions="16" time="10.002900208" file="test/example_one_test.rb"></testcase>
+    <testcase name="test_should_4" lineno="417" classname="MinitestExample::ExampleOne" assertions="8" time="7.906220136000002" file="test/example_one_test.rb"></testcase>
+    <testcase name="test_should_5" lineno="377" classname="MinitestExample::ExampleOne" assertions="3" time="4.83951247600001" file="test/example_one_test.rb"></testcase>
+    <testcase name="test_should_6" lineno="127" classname="MinitestExample::ExampleOne" assertions="2" time="7.946934494999994" file="test/example_one_test.rb"></testcase>
+    <testcase name="test_should_7" lineno="90" classname="MinitestExample::ExampleOne" assertions="6" time="7.33681554399999" file="test/example_one_test.rb"></testcase>
+    <testcase name="test_should_8" lineno="361" classname="MinitestExample::ExampleOne" assertions="3" time="3.7035172650000163" file="test/example_one_test.rb"></testcase>
+    <testcase name="test_should_9" lineno="792" classname="MinitestExample::ExampleOne" assertions="7" time="5.0982520260000115" file="test/example_one_test.rb"></testcase>
+    <testcase name="test_should_10" lineno="565" classname="MinitestExample::ExampleOne" assertions="14" time="8.214560409" file="test/example_one_test.rb"></testcase>
+    <testcase name="test_should_11" lineno="847" classname="MinitestExample::ExampleOne" assertions="4" time="3.7682949800000074" file="test/example_one_test.rb"></testcase>
+    <testcase name="test_should_12" lineno="23" classname="MinitestExample::ExampleOne" assertions="3" time="2.9085229240000103" file="test/example_one_test.rb"></testcase>
+    <testcase name="test_should_13" lineno="236" classname="MinitestExample::ExampleOne" assertions="8" time="7.498208777000002" file="test/example_one_test.rb"></testcase>
+    <testcase name="test_should_14" lineno="645" classname="MinitestExample::ExampleOne" assertions="25" time="18.99167838599999" file="test/example_one_test.rb"></testcase>
+    <testcase name="test_should_15" lineno="74" classname="MinitestExample::ExampleOne" assertions="2" time="2.9546497440000508" file="test/example_one_test.rb"></testcase>
+    <testcase name="test_should_16" lineno="818" classname="MinitestExample::ExampleOne" assertions="7" time="5.090684646" file="test/example_one_test.rb"></testcase>
+    <testcase name="test_should_17" lineno="80" classname="MinitestExample::ExampleOne" assertions="1" time="4.677773596000009" file="test/example_one_test.rb"></testcase>
+    <testcase name="test_should_18" lineno="283" classname="MinitestExample::ExampleOne" assertions="9" time="7.857259849999991" file="test/example_one_test.rb"></testcase>
+    <testcase name="test_should_19" lineno="336" classname="MinitestExample::ExampleOne" assertions="3" time="3.5806890189999763" file="test/example_one_test.rb"></testcase>
+  </testsuite>
+  <testsuite name="MinitestExample::ExampleTwo" filepath="test/example_two_test.rb" skipped="0" failures="0" errors="0" tests="14" assertions="92" time="71.78414915600013">
+    <testcase name="test_should_100" lineno="95" classname="MinitestExample::ExampleTwo" assertions="5" time="2.827323084999989" file="test/example_two_test.rb"></testcase>
+    <testcase name="test_should_101" lineno="319" classname="MinitestExample::ExampleTwo" assertions="10" time="1.8399586300000124" file="test/example_two_test.rb"></testcase>
+    <testcase name="test_should_102" lineno="134" classname="MinitestExample::ExampleTwo" assertions="8" time="2.860204046999968" file="test/example_two_test.rb"></testcase>
+    <testcase name="test_should_103" lineno="53" classname="MinitestExample::ExampleTwo" assertions="5" time="2.2035054890000083" file="test/example_two_test.rb"></testcase>
+    <testcase name="test_should_104" lineno="289" classname="MinitestExample::ExampleTwo" assertions="7" time="2.7548382760000436" file="test/example_two_test.rb"></testcase>
+    <testcase name="test_should_105" lineno="16" classname="MinitestExample::ExampleTwo" assertions="2" time="12.951703337000026" file="test/example_two_test.rb"></testcase>
+    <testcase name="test_should_106" lineno="153" classname="MinitestExample::ExampleTwo" assertions="8" time="2.7291457330000526" file="test/example_two_test.rb"></testcase>
+    <testcase name="test_should_107" lineno="243" classname="MinitestExample::ExampleTwo" assertions="8" time="3.1154159890000415" file="test/example_two_test.rb"></testcase>
+    <testcase name="test_should_108" lineno="202" classname="MinitestExample::ExampleTwo" assertions="5" time="2.749787270000013" file="test/example_two_test.rb"></testcase>
+    <testcase name="test_should_109" lineno="80" classname="MinitestExample::ExampleTwo" assertions="5" time="10.799018211000032" file="test/example_two_test.rb"></testcase>
+    <testcase name="test_should_110" lineno="172" classname="MinitestExample::ExampleTwo" assertions="5" time="2.615235616999996" file="test/example_two_test.rb"></testcase>
+    <testcase name="test_should_111" lineno="22" classname="MinitestExample::ExampleTwo" assertions="4" time="2.1280812749999996" file="test/example_two_test.rb"></testcase>
+    <testcase name="test_should_112" lineno="31" classname="MinitestExample::ExampleTwo" assertions="2" time="2.2754831219999687" file="test/example_two_test.rb"></testcase>
+    <testcase name="test_should_113" lineno="109" classname="MinitestExample::ExampleTwo" assertions="18" time="19.934449074999975" file="test/example_two_test.rb"></testcase>
+  </testsuite>
+</testsuites>

@@ -9,6 +9,7 @@ import {
 } from './enrichers'
 import { stripAnsiFromErrors } from './helpers'
 import { processPreviousResultsAndMetrics } from './metrics'
+import { convertJUnitToCTRFReport } from 'junit-to-ctrf'
 
 /**
  * Prepares a CTRF report by applying various processing steps, including
@@ -23,8 +24,14 @@ export async function prepareReport(
   inputs: Inputs,
   githubContext: GitHubContext
 ): Promise<CtrfReport> {
+  let report: CtrfReport
   core.startGroup(`📜 Preparing CTRF report`)
-  let report: CtrfReport = readCtrfReports(inputs.ctrfPath)
+  if (inputs.ctrfPath.includes('.xml')) {
+    core.info('JUnit report detected, converting to CTRF')
+    report = await convertJUnitToCTRFReport(inputs.ctrfPath)
+  } else {
+    report = readCtrfReports(inputs.ctrfPath)
+  }
   report = stripAnsiFromErrors(report)
   report = enrichCurrentReportWithRunDetails(report, githubContext)
   if (inputs.uploadArtifact) await uploadArtifact(inputs.artifactName, report)
