@@ -26,15 +26,28 @@ jobs:
           report-path: './ctrf/*.json'
           # write-ctrf-to-file: './reports/ctrf-report.json'
           # annotate: false
-          previous-results-report: true
-          flaky-report: true
-          insights-report: true
-          slowest-report: true
+          # previous-results-report: true
+          # flaky-report: true
+          # insights-report: true
+          # slowest-report: true
           # exit-on-fail: true
           # summary-report: true
           # failed-report: true
           # pull-request: true
           # upload-artifact: true
+          summary-report: true
+          github-report: true
+          failed-report: true
+          flaky-report: true
+          insights-report: true
+          fail-rate-report: true
+          flaky-rate-report: true
+          slowest-report: true
+          previous-results-report: true
+          use-suite-name: true
+          upload-artifact: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: always()
